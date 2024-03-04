@@ -1,8 +1,8 @@
 ---
 ## Front matter
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
-author: "Дмитрий Сергеевич Кулябов"
+title: "Отчёт по лабораторной работе №4"
+subtitle: "Операционные системы"
+author: "Андреева Софья Владимировна"
 
 ## Generic otions
 lang: ru-RU
@@ -16,19 +16,18 @@ csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
 toc: true # Table of contents
 toc-depth: 2
 lof: true # List of figures
-lot: true # List of tables
 fontsize: 12pt
 linestretch: 1.5
 papersize: a4
 documentclass: scrreprt
 ## I18n polyglossia
 polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
+name: russian
+options:
+- spelling=modern
+- babelshorthands=true
 polyglossia-otherlangs:
-  name: english
+name: english
 ## I18n babel
 babel-lang: russian
 babel-otherlangs: english
@@ -45,75 +44,84 @@ monofontoptions: Scale=MatchLowercase,Scale=0.9
 biblatex: true
 biblio-style: "gost-numeric"
 biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
+- parentracker=true
+- backend=biber
+- hyperref=auto
+- language=auto
+- autolang=other*
+- citestyle=gost-numeric
 ## Pandoc-crossref LaTeX customization
 figureTitle: "Рис."
 tableTitle: "Таблица"
 listingTitle: "Листинг"
 lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
 lolTitle: "Листинги"
 ## Misc options
 indent: true
 header-includes:
-  - \usepackage{indentfirst}
-  - \usepackage{float} # keep figures where there are in the text
-  - \floatplacement{figure}{H} # keep figures where there are in the text
+- \usepackage{indentfirst}
+- \usepackage{float} # keep figures where there are in the text
+- \floatplacement{figure}{H} # keep figures where there are in the text
 ---
 
 # Цель работы
 
-Здесь приводится формулировка цели лабораторной работы. Формулировки
-цели для каждой лабораторной работы приведены в методических
-указаниях.
+Получение навыков правильной работы с репозиториями git.
 
-Цель данного шаблона --- максимально упростить подготовку отчётов по
-лабораторным работам.  Модифицируя данный шаблон, студенты смогут без
-труда подготовить отчёт по лабораторным работам, а также познакомиться
-с основными возможностями разметки Markdown.
+# Выполнение работы
 
-# Задание
+Установим git-flow из коллекции репозиториев Cop (рис. @fig:001).
 
-Здесь приводится описание задания в соответствии с рекомендациями
-методического пособия и выданным вариантом.
+![Установим git-flow](image/1.jpg){#fig:001 width=70%}
 
-# Теоретическое введение
+Установка Node.js.На Node.js базируется программное обеспечение для семантического версионирования и общепринятых коммитов (рис. @fig:002).
 
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
+![Установка Node](image/2.jpg){#fig:002 width=70%}
 
-Например, в табл. [-@tbl:std-dir] приведено краткое описание стандартных каталогов Unix.
+Запустим pnpm setup, выполним source ~/.bashrc.Выполним pnpm add -g commitizen.При этом устанавливается скрипт git-cz, который мы и будем использовать для коммитов (рис. @fig:003).
 
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl:std-dir}
+![Выполним pnpm add -g commitizen](image/3.jpg){#fig:003 width=70%}
 
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
+Добавим standard-changelog.Данная программа используется для помощи в создании логов  (рис. @fig:004).
 
-Более подробно про Unix см. в [@tanenbaum_book_modern-os_ru; @robbins_book_bash_en; @zarrelli_book_mastering-bash_en; @newham_book_learning-bash_en].
+![Добавим standard-changelog ](image/4.jpg){#fig:004 width=70%}
 
-# Выполнение лабораторной работы
+Создадим репозиторий на GitHub. Назовём его git-extended.Клонируем его.(рис. @fig:005).
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. [-@fig:001]).
+![Создадим репозиторий на GitHub](image/5.jpg){#fig:005 width=70%}
 
-![Название рисунка](image/placeimg_800_600_tech.jpg){#fig:001 width=70%}
+Делаем первый коммит и выкладываем на github (рис. @fig:006).
+
+![Делаем первый коммит](image/6.jpg){#fig:006 width=70%}
+
+Создаем конфигурацию для пакетов Node.js.Необходимо заполнить несколько параметров пакета. Выбираем лицензию CC-BY-4.0.Добавим в файл package.json команду для формирования коммитов (рис. @fig:007).
+
+![Создаем конфигурацию для пакетов Node.js](image/7.jpg){#fig:007 width=70%}
+
+Добавим новые файлы, выполним коммит и отправим на github  (рис. @fig:008).
+
+![Добавим новые файлы](image/8.jpg){#fig:008 width=70%}
+
+Инициализируем git-flow.Префикс для ярлыков установим в v.Проверим, что мы на ветке develop.Загрузим весь репозиторий в хранилище (рис.@fig:009).
+
+![Инициализируем git-flow](image/9.jpg){#fig:009 width=70%}
+
+Установим внешнюю ветку как вышестоящую. Создадим релиз с версией 1.0.0. Создадим журнал изменений. Добавим журнал изменений в индекс. Зальём релизную ветку в основную ветку и отправим данные на github (рис. @fig:010).
+
+![Добавим журнал изменений в индекс](image/10.jpg){#fig:010 width=70%}
+
+Создадим релиз на github. Для этого будем использовать утилиты работы с github.Создадим ветку для новой функциональности: git flow feature start feature_branch. По окончании разработки новой функциональности следующим шагом следует объединяем ветку feature_branch c develop. Создадим релиз git-flow с версией 1.2.3. Обновим номер версии в файле package.json. (рис. @fig:011).
+
+![Создадим релиз на github](image/11.jpg){#fig:011 width=70%}
+
+Создадим журнал изменений. Добавим журнал изменений в индекс. Зальём релизную ветку в основную ветку (рис. @fig:012).
+
+![Добавим журнал изменений в индекс](image/12.jpg){#fig:012 width=70%}
+
+Отправим данные на github и создадим релиз на github с комментарием из журнала изменений (рис. @fig:013).
+
+![Отправим данные на github и создадим релиз](image/13.jpg){#fig:013 width=70%}
 
 # Выводы
 
-Здесь кратко описываются итоги проделанной работы.
-
-# Список литературы{.unnumbered}
-
-::: {#refs}
-:::
+ Я получила навыки правильной работы с репозиториями git.
