@@ -1,8 +1,8 @@
 ---
 ## Front matter
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
-author: "Дмитрий Сергеевич Кулябов"
+title: "Отчёт о выполнении. Индивидуальный проект. Этап 1"
+subtitle: "Операционные системы"
+author: "Андреева Софья Владимировна"
 
 ## Generic otions
 lang: ru-RU
@@ -16,19 +16,18 @@ csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
 toc: true # Table of contents
 toc-depth: 2
 lof: true # List of figures
-lot: true # List of tables
 fontsize: 12pt
 linestretch: 1.5
 papersize: a4
 documentclass: scrreprt
 ## I18n polyglossia
 polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
+name: russian
+options:
+- spelling=modern
+- babelshorthands=true
 polyglossia-otherlangs:
-  name: english
+name: english
 ## I18n babel
 babel-lang: russian
 babel-otherlangs: english
@@ -45,75 +44,76 @@ monofontoptions: Scale=MatchLowercase,Scale=0.9
 biblatex: true
 biblio-style: "gost-numeric"
 biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
+- parentracker=true
+- backend=biber
+- hyperref=auto
+- language=auto
+- autolang=other*
+- citestyle=gost-numeric
 ## Pandoc-crossref LaTeX customization
 figureTitle: "Рис."
 tableTitle: "Таблица"
 listingTitle: "Листинг"
 lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
 lolTitle: "Листинги"
 ## Misc options
 indent: true
 header-includes:
-  - \usepackage{indentfirst}
-  - \usepackage{float} # keep figures where there are in the text
-  - \floatplacement{figure}{H} # keep figures where there are in the text
+- \usepackage{indentfirst}
+- \usepackage{float} # keep figures where there are in the text
+- \floatplacement{figure}{H} # keep figures where there are in the text
 ---
 
-# Цель работы
+# Цель и задачи  работы
 
-Здесь приводится формулировка цели лабораторной работы. Формулировки
-цели для каждой лабораторной работы приведены в методических
-указаниях.
+- Установить необходимое программное обеспечение.
+- Скачать шаблон темы сайта.
+- Разместить его на хостинге git.
+- Установить параметр для URLs сайта.
+- Разместить заготовку сайта на Github pages.
 
-Цель данного шаблона --- максимально упростить подготовку отчётов по
-лабораторным работам.  Модифицируя данный шаблон, студенты смогут без
-труда подготовить отчёт по лабораторным работам, а также познакомиться
-с основными возможностями разметки Markdown.
+# Выполнение работы
 
-# Задание
+Установим программное обеспечение для Hugo.Разархивируем скачанный архив и сам hugo переместим в созданную в домашнем каталоге папку bin  (рис. [-@fig:001]).
 
-Здесь приводится описание задания в соответствии с рекомендациями
-методического пособия и выданным вариантом.
+![Установим программное обеспечение для Hugo](image/1.jpg){#fig:001 width=70%}
 
-# Теоретическое введение
+Создадим репозиторий blog на основе шаблона (рис. [-@fig:002]).
 
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
+![Создадим репозиторий blog на основе шаблона](image/2.jpg){#fig:002 width=70%}
 
-Например, в табл. [-@tbl:std-dir] приведено краткое описание стандартных каталогов Unix.
+Клонируем созданный репозиторий (рис. [-@fig:003]).
 
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl:std-dir}
+![Клонируем созданный репозиторий](image/3.jpg){#fig:003 width=70%}
 
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
+Введем команду ~/bin/hugo, создадутся необходимые папки из них удаляем папку public, так как она нам не нужна (рис. [-@fig:004]).
 
-Более подробно про Unix см. в [@tanenbaum_book_modern-os_ru; @robbins_book_bash_en; @zarrelli_book_mastering-bash_en; @newham_book_learning-bash_en].
+![Введем команду ~/bin/hugo](image/4.jpg){#fig:004 width=70%}
 
-# Выполнение лабораторной работы
+Введем команду ~/bin/hugo server.Консоль выдает ссылку на сайт, переходим и проверяем его (рис. [-@fig:005]).
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. [-@fig:001]).
+![Введем команду ~/bin/hugo server](image/5.jpg){#fig:005 width=70%}
 
-![Название рисунка](image/placeimg_800_600_tech.jpg){#fig:001 width=70%}
+Создадим новый репозиторий с определенным именем (рис. [-@fig:006]).
 
-# Выводы
+![Создадим новый репозиторий с определенным именем](image/6.jpg){#fig:006 width=70%}
 
-Здесь кратко описываются итоги проделанной работы.
+Kлонируем репозиторий и выгрузим в него созданный файл README.md, проверяем наличие файла в репозитории  (рис. [-@fig:007]).
 
-# Список литературы{.unnumbered}
+![Kлонируем репозиторий и выгрузим в него созданный файл README.md ](image/7.jpg){#fig:007 width=70%}
+ 
+Редактируем gitignore, тем самым отключаем public (рис. [-@fig:008]).
 
-::: {#refs}
-:::
+![Редактируем gitignore ](image/8.jpg){#fig:008 width=70%}
+
+Подключаем репозиторий к вложенной папке (рис. [-@fig:009]).
+
+![Подключаем репозиторий к вложенной папке](image/9.jpg){#fig:009 width=70%}
+
+Генерируем сайт и выгружаем все на сервер (рис. [-@fig:010]).
+
+![Генерируем сайт и выгружаем все на сервер](image/10.jpg){#fig:010 width=70%}
+
+# Вывод
+
+Я установила необходимое программное обеспечение.Скачала шаблон темы сайта.Разместила его на хостинге git.Установила параметр для URLs сайта.Разместила заготовку сайта на Github pages.
